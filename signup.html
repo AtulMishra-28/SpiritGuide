@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup AND Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="outerbox">
+       
+        <h1 class="logo">Spirit Guide</h1>
+        <div class="innerbox" id="signup" style="display:block">
+           <header class="signup-header">
+                <h1>SignUp</h1>
+            </header>
+            <main class="signup-body">
+                <form id="signupForm" method="post" action="/signup">
+                    <p> 
+                        <label for="Fullname">Full Name</label>
+                        <input type="text" id="Fullname" name="fullName" placeholder="your name" required>
+                    </p>
+                    <p>
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email-signup" name="email" placeholder="yous email" required>
+                    </p>
+                    <p>
+                        <label for="password">Your New Password</label>
+                        <input type="password" id="password-signup" name="password" placeholder="atleast 8 characters" required>
+                    </p>
+                    <p>
+                        <input type="submit" id="submit" value="Create Account">
+                    </p>
+                </form>
+            </main>
+            <footer class="signup-footer">
+                <p>Already have an account?<br><button class="btn" id="submitsignin">Login</button></p>
+
+            </footer>
+            
+        </div>
+        <!-- This the html for login page -->
+        <div class="innerbox" id="signin" style="display: none;">
+            <header class="signup-header">
+                 <h1>Login</h1>
+               
+             </header>
+             <main class="signup-body">
+                 <form  id="loginForm" method="post" action="/login">
+                     <p>
+                         <label for="email">Your Email</label>
+                         <input type="email" id="email" placeholder="your email" required>
+                     </p>
+                     <p>
+                         <label for="password">Your Password</label>
+                         <input type="password" id="password" placeholder="Enter password" required>
+                     </p>
+                     <p>
+                         <input type="submit" id="submit" value="Login">
+                     </p>
+                 </form>
+             </main>
+             <footer class="signup-footer">
+                 <p>Not have an account?<br><button class="btn" id="submitsignup">Signup</button></p>
+             </footer>
+         </div>
+        <!-- Design of three circles -->
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

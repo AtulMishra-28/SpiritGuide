@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Christianity & Prayer Times</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-r from-blue-200 to-indigo-200 min-h-screen flex flex-col items-center">
+    <header class="w-full bg-white shadow-md">
+        <div class="container mx-auto flex justify-start items-center py-4 px-6 space-x-4">
+            <img src="images/logo.jpg" alt="Logo" class="rounded-full" width="40" height="40"/>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a class="text-gray-700 hover:text-gray-900" href="dashboard.html">Home</a></li>
+                    <li><a class="text-gray-700 hover:text-gray-900" href="about-us.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container mx-auto py-8 px-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold">Learn About Christianity & Values</h1>
+            <p class="text-gray-600">Explore sacred texts, rituals, and prayer timings.</p>
+        </div>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Sacred Texts</h2>
+                <a href="christian-sacred-text.html">
+                    <img src="images/sacred-christian.jpeg" alt="Sacred Texts" class="w-full h-48 object-cover rounded mb-2">
+                </a>
+                <p>Read and learn from the Bible, Gospels, and Psalms.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Christian Rituals & Events</h2>
+                <p>Learn how to perform various Christian rituals with step-by-step guides.</p>
+                <iframe src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia/Kolkata" style="border: 0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-2">YouTube Videos</h2>
+                <a href="youtube-christian.html" class="flex justify-center">
+                    <img src="images/youtbe.png" alt="YouTube Videos" class="h-48 object-cover rounded">
+                </a>
+                <p class="mt-2"><a href="youtube-christian.html" class="text-blue-600 hover:underline">Click here to watch Sacred Christianity videos</a></p>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded shadow text-center">
+            <h2 class="text-xl font-semibold">Christian Prayer Timings</h2>
+            <p class="mb-2" id="location">Location: Detecting...</p>
+            <p class="mb-2" id="date">Date: Loading...</p>
+            <div id="christianPrayerTimes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class='bg-gray-100 p-4 rounded shadow'>
+                    <h3 class='text-lg font-semibold'>Morning Prayer</h3>
+                    <p>06:00 AM - 07:00 AM</p>
+                </div>
+                <div class='bg-gray-100 p-4 rounded shadow'>
+                    <h3 class='text-lg font-semibold'>Midday Prayer</h3>
+                    <p>12:00 PM - 12:30 PM</p>
+                </div>
+                <div class='bg-gray-100 p-4 rounded shadow'>
+                    <h3 class='text-lg font-semibold'>Evening Prayer</h3>
+                    <p>06:00 PM - 06:30 PM</p>
+                </div>
+                <div class='bg-gray-100 p-4 rounded shadow'>
+                    <h3 class='text-lg font-semibold'>Night Prayer</h3>
+                    <p>09:00 PM - 09:30 PM</p>
+                </div>
+                <div class='bg-gray-100 p-4 rounded shadow'>
+                    <h3 class='text-lg font-semibold'>Sunday Worship</h3>
+                    <p>10:00 AM - 12:00 PM</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        function updateDate() {
+            const date = new Date();
+            document.getElementById("date").textContent = date.toDateString();
+        }
+        
+        function fetchLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    document.getElementById("location").textContent = `Location: ${position.coords.latitude.toFixed(2)}, ${position.coords.longitude.toFixed(2)}`;
+                }, () => {
+                    document.getElementById("location").textContent = "Location: Permission Denied";
+                });
+            } else {
+                document.getElementById("location").textContent = "Location: Not Supported";
+            }
+        }
+        
+        updateDate();
+        fetchLocation();
+    </script>
+</body>
+</html>

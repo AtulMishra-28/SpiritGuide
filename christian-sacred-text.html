@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Christian Texts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-200 to-purple-200 min-h-screen text-white">
+
+    <!-- Navbar -->
+    <header class="w-full bg-white shadow-md">
+        <div class="container mx-auto flex justify-start items-center py-4 px-6 space-x-4">
+            <img src="images/logo.jpg" alt="Logo" class="rounded-full" width="40" height="40"/>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a class="text-gray-700 hover:text-gray-900" href="dashboard.html">Home</a></li>
+                    <li><a class="text-gray-700 hover:text-gray-900" href="about-us.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-16 px-5 h-full"> <!-- Full height container -->
+        <h1 class="text-4xl font-bold text-center mb-10">Sacred Christian Texts</h1>
+        
+        <!-- Flexbox for better spacing -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 h-full">
+            <!-- Card 1 -->
+            <a href="pdfs/bible.pdf" target="_blank" class="bg-white bg-opacity-10 p-4 rounded-xl shadow-lg text-center hover:bg-opacity-20 transition transform hover:scale-105 flex flex-col justify-between h-full">
+                <img src="images/bible.jpeg" alt="Bible" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-lg font-semibold">Bible</p>
+            </a>
+            
+            <!-- Card 2 -->
+            <a href="pdfs/psalms.pdf" target="_blank" class="bg-white bg-opacity-10 p-4 rounded-xl shadow-lg text-center hover:bg-opacity-20 transition transform hover:scale-105 flex flex-col justify-between h-full">
+                <img src="images/psalms.jpeg" alt="Psalms" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-lg font-semibold">Psalms</p>
+            </a>
+            
+            <!-- Card 3 -->
+            <a href="pdfs/prayer.pdf" target="_blank" class="bg-white bg-opacity-10 p-4 rounded-xl shadow-lg text-center hover:bg-opacity-20 transition transform hover:scale-105 flex flex-col justify-between h-full">
+                <img src="images/prayer.jpeg" alt="Prayers" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-lg font-semibold">Christian Prayers</p>
+            </a>
+            
+            <!-- Card 4 -->
+            <a href="pdfs/sermons.pdf" target="_blank" class="bg-white bg-opacity-10 p-4 rounded-xl shadow-lg text-center hover:bg-opacity-20 transition transform hover:scale-105 flex flex-col justify-between h-full">
+                <img src="images/sermons.jpeg" alt="Sermons" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-lg font-semibold">Sermons</p>
+            </a>
+            
+            <!-- Card 5 -->
+            <a href="pdfs/churchhistory.pdf" target="_blank" class="bg-white bg-opacity-10 p-4 rounded-xl shadow-lg text-center hover:bg-opacity-20 transition transform hover:scale-105 flex flex-col justify-between h-full">
+                <img src="images/churchhistory.jpeg" alt="Church History" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-lg font-semibold">Church History</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

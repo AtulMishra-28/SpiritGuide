@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sacred Texts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-r from-yellow-200 to-orange-200 min-h-screen flex flex-col items-center">
+    <header class="w-full bg-white shadow-md">
+        <div class="container mx-auto flex justify-start items-center py-4 px-6 space-x-4">
+            <img src="images/logo.jpg" alt="Logo" class="rounded-full" width="40" height="40"/>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a class="text-gray-700 hover:text-gray-900" href="dashboard.html">Home</a></li>
+                    <li><a class="text-gray-700 hover:text-gray-900" href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container mx-auto py-8 px-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold">Sacred Hindu Texts</h1>
+            <p class="text-gray-600">Explore the wisdom of Hinduism through these sacred scriptures.</p>
+        </div>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Bhagavad Gita (Hindi)</h2>
+                <a href="pdfs/Gita.pdf" target="_blank">
+                    <img src="images/hindi_gita.png" alt="Bhagavad Gita in Hindi" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Bhagavad Gita (English)</h2>
+                <a href="pdfs/Gita_English.pdf" target="_blank">
+                    <img src="images/english_gita.png" alt="Bhagavad Gita in English" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Bhagavad Gita (Marathi)</h2>
+                <a href="pdfs/Gita_Marathi.pdf" target="_blank">
+                    <img src="images/marathi_gita.png" alt="Bhagavad Gita in Marathi" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Ramayan</h2>
+                <a href="pdfs/Ramayan.pdf" target="_blank">
+                    <img src="images/ramayan.jpg" alt="Ramayan" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Mahabharata</h2>
+                <a href="pdfs/mahabharat.pdf" target="_blank">
+                    <img src="images/mahabharata.jpg" alt="Mahabharata" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <!-- New Cards -->
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Hindi Aarti</h2>
+                <a href="pdfs/hindi_arti_sangrah.pdf" target="_blank">
+                    <img src="images/hindi_aarti.jpg" alt="Hindi Aarti" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Marathi Aarti</h2>
+                <a href="pdfs/marathi_aarti_sangrah.pdf" target="_blank">
+                    <img src="images/marathi_aarti.jpg" alt="Marathi Aarti" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Hanuman Chalisa</h2>
+                <a href="images/h_c.jpg" target="_blank">
+                    <img src="images/hanuman_chalisa.jpg" alt="Hanuman Chalisa" class="w-full h-auto object-contain rounded mb-2">
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

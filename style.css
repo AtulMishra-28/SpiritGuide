@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Arial', sans-serif;
+}
+
+.outerbox{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f3f88, #8597b4);
+    background-size: cover;
+    
+    /* background: linear-gradient(to top left, #2dd3fd,#a8f5ff); */
+
+}
+
+.outerbox h1{
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Lato';
+    color: black;
+    text-shadow: 1px 2px #ffff;
+}
+
+.innerbox{
+    width:300px;
+    margin:0 auto;
+    position: relative;
+    top:40%;
+    transform: translateY(-60%);
+    padding: 20px 60px;
+    /* background-color: white; */
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba(89, 131, 83, 0.09);
+    backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    box-shadow: 7px 7px 5px  #021c2d;
+    z-index: 2;
+}
+
+.signup-header h1{
+    text-align: center;
+    font-size: 2.5rem;
+    color: #212121;
+    text-shadow: none;
+    font-family: none;
+}
+
+.signup-header p{
+    text-align: center;
+    font-size: 0.8rem;
+    color:black;
+}
+
+.signup-body{
+    margin:20px 0;
+
+}
+
+.signup-body p{
+    margin: 10px 0;
+}
+
+.signup-body p label{
+    font-weight: bold;
+}
+
+.signup-body p input {
+    width:100%;
+    padding: 10px;
+    border:2px solid#cccc;
+    border-radius: 4px; 
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+.signup-body p input[type="submit"]{
+    background-color: #3498db;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-body p input[type="submit"]:hover{
+    background-color: #145683;
+}
+
+.signup-footer{
+    color: black;
+    text-align: center;
+}
+
+.signup-footer a{
+    color: darkblue;
+}
+
+.btn{
+    color:white;
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+.btn:hover{
+        text-decoration:underline;
+        color:blue;
+        cursor: pointer;
+}
+
+
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background:linear-gradient(to bottom right, #ffffff13, #ffffff55);
+    position: absolute;
+
+}
+
+.c1{
+    top: 100px;
+    left:40px;
+}
+
+.c2{
+    bottom:200px;
+    right: 50px;
+}
+
+.c3{
+    width: 100px;
+    height: 100px;
+    left: 40px;
+    bottom: 100px;
+}
+/* Annimation of falling music symbols */
+@keyframes fall {
+    0% {
+        transform: translateY(-50px); /* Start slightly above the viewport */
+    }
+    100% {
+        transform: translateY(100vh); /* End at the bottom of the viewport */
+    }
+}
+
+.music-symbol {
+    position: absolute;
+    font-size: 2rem; /* Size of the music symbol */
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    user-select: none;
+    pointer-events: none; /* Prevent interaction with symbols */
+    animation: fall linear infinite;
+}
+
+.music-symbol:nth-child(1) {
+    bottom: 100%;
+    left: 10%;
+    animation-duration: 2s;
+    animation-delay: 0s;
+}
+
+.music-symbol:nth-child(2) {
+    bottom: 100%;
+    left: 30%;
+    animation-duration: 4s;
+    animation-delay: 0.1s;
+}
+
+.music-symbol:nth-child(3) {
+    bottom: 100%;
+    left: 50%;
+    animation-duration: 2s;
+    animation-delay: 0.2s;
+}
+
+.music-symbol:nth-child(4) {
+    bottom: 100%;
+    left: 70%;
+    animation-duration: 4s;
+    animation-delay: 0.3s;
+}
+
+.music-symbol:nth-child(5) {
+    bottom: 100%;
+    left: 90%;
+    animation-duration: 2s;
+    animation-delay: 0.4s;
+}
+

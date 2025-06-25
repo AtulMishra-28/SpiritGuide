@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Muslim Prayers & Timings </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-r from-green-200 to-red-200 min-h-screen flex flex-col items-center">
+    <header class="w-full bg-white shadow-md">
+        <div class="container mx-auto flex justify-start items-center py-4 px-6 space-x-4">
+            <img src="images/logo.jpg" alt="Logo" class="rounded-full" width="40" height="40"/>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a class="text-gray-700 hover:text-gray-900" href="dashboard.html">Home</a></li>
+                    <li><a class="text-gray-700 hover:text-gray-900" href="about-us.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container mx-auto py-8 px-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold">Learn About Hindu Culture & Values</h1>
+            <p class="text-gray-600">Explore sacred texts, rituals, and prayer timings.</p>
+        </div>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Sacred Texts</h2>
+                <a href="sacred-muslim-text.html">
+                    <img src="images/sacred-muslim.jpg" alt="Sacred Texts" class="w-full h-48 object-cover rounded mb-2">
+                </a>
+                <p>Read and learn from the Sacred texts.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-xl font-semibold">Muslim Rituals & Events</h2>
+                <p>Learn how to perform various Muslims rituals with step-by-step guides.</p>
+                <iframe src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia/Kolkata" style="border: 0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-2">YouTube Videos</h2>
+                <a href="youtube-muslim.html" class="flex justify-center">
+                    <img src="images/youtbe.png" alt="YouTube Videos" class="h-48 object-cover rounded">
+                </a>
+                <p class="mt-2"><a href="youtube-muslim.html" class="text-blue-600 hover:underline">Click here to watch Sacred Muslim Videos</a></p>
+            </div>
+        </section>
+
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold">Most Accurate Prayer Time</h1>
+            <p class="text-gray-600" id="nextPrayer">Loading prayer times...</p>
+        </div>
+        
+        <div id="prayerTimes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <!-- Prayer times will be injected here -->
+        </div>
+        
+        <div class="bg-white p-4 rounded shadow">
+            <p class="mb-2" id="location">Location: Detecting...</p>
+            <p class="mb-2" id="date">Date: Loading...</p>
+            <p class="mb-2">Your Daily Prayer Log</p>
+            <p class="mb-2" id="sunrise">Sunrise: --:--</p>
+            <p id="sunset">Sunset: --:--</p>
+        </div>
+    </main>
+    
+    <script>
+        async function fetchPrayerTimes(latitude, longitude) {
+            try {
+                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=2`);
+                const data = await response.json();
+                const timings = data.data.timings;
+                const prayerOrder = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+                
+                let prayerHTML = "";
+                prayerOrder.forEach(prayer => {
+                    prayerHTML += `
+                        <div class="bg-white p-4 rounded shadow text-center">
+                            <h2 class="text-lg font-semibold">${prayer}</h2>
+                            <p>${timings[prayer]}</p>
+                        </div>
+                    `;
+                });
+                document.getElementById("prayerTimes").innerHTML = prayerHTML;
+                
+                document.getElementById("sunrise").textContent = `Sunrise: ${timings.Sunrise}`;
+                document.getElementById("sunset").textContent = `Sunset: ${timings.Sunset}`;
+                
+                updateNextPrayer(timings);
+            } catch (error) {
+                document.getElementById("nextPrayer").textContent = "Error fetching prayer times.";
+            }
+        }
+        
+        function updateNextPrayer(timings) {
+            const now = new Date();
+            const prayerTimes = Object.entries(timings).map(([name, time]) => {
+                const [hours, minutes] = time.split(":").map(Number);
+                return { name, time: new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes) };
+            });
+            
+            const nextPrayer = prayerTimes.find(p => p.time > now);
+            document.getElementById("nextPrayer").textContent = nextPrayer ? `Next Prayer: ${nextPrayer.name} at ${nextPrayer.time.toLocaleTimeString()}` : "All prayers completed for today.";
+        }
+        
+        function fetchLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    document.getElementById("location").textContent = `Location: ${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
+                    fetchPrayerTimes(latitude, longitude);
+                }, () => {
+                    document.getElementById("location").textContent = "Location: Permission Denied";
+                });
+            } else {
+                document.getElementById("location").textContent = "Location: Not Supported";
+            }
+        }
+        
+        function updateDate() {
+            const date = new Date();
+            document.getElementById("date").textContent = date.toDateString();
+        }
+        
+        updateDate();
+        fetchLocation();
+    </script>
+</body>
+</html>

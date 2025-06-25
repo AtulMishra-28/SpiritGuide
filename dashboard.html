@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spirit Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    
+    /* Slider */
+    .slider-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; }
+    .slider { position: relative; width: 50%; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .slides { display: flex; transition: transform 0.5s ease-in-out; }
+    .slide { min-width: 100%; }
+
+    /* Quote Box */
+    .quote-box {
+      width: 100%;
+      max-width: 320px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 10px;
+      text-align: center; /* Align text to the right */
+      font-style: italic;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-weight: 500;
+    }
+    #quote-text {
+      font-size: 16px;
+      color: #333;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Wisdom of the Day */
+    .wisdom-box {
+      width: 100%;
+      max-width: 320px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.85); /* Same background as quote box */
+      border-radius: 10px;
+      text-align: center; /* Align text to the right */
+      font-style: italic;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-weight: 500;
+    }
+
+    /* Cards */
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .card .card-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+    }
+    .card:hover .card-text {
+      transform: translateY(0);
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      z-index: 10;
+    }
+    .dropdown-menu.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-green-200 to-orange-200">
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <img src="images/logo.jpg" alt="Logo" style="border-radius: 50%;" class="h-10 w-10"/>
+        <nav class="ml-10 space-x-4">
+          
+          <!-- Dropdown Menu -->
+          <div class="relative dropdown inline-block">
+            <button class="text-gray-800 hover:text-gray-600 focus:outline-none" id="dropdownButton">Religion ▼</button>
+            <div class="dropdown-menu" id="dropdownMenu">
+              <a href="hindu.html" class="block px-4 py-2 hover:bg-gray-100">Hinduism</a>
+              <a href="muslim.html" class="block px-4 py-2 hover:bg-gray-100">Islam</a>
+              <a href="christian.html" class="block px-4 py-2 hover:bg-gray-100">Christianity</a>
+            </div>
+          </div>
+
+          <a href="about-us.html" class="text-gray-800 hover:text-gray-600">About Us</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-10 px-6">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">Spirit Guide</h1>
+
+    <div class="flex justify-between items-center">
+      <!-- Rotating Quotes -->
+      <div class="w-1/4 hidden md:flex justify-center">
+        <div class="quote-box">
+          <p id="quote-text"><strong>"There will be no peace among the nations without peace among the religions." — Hans Küng</strong></p>
+        </div>
+      </div>
+
+      <!-- Image Slider -->
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slides">
+            <img class="slide" src="images/hindu.jpeg" alt="Slide 1">
+            <img class="slide" src="images/muslim.png" alt="Slide 2">
+            <img class="slide" src="images/christian.jpeg" alt="Slide 3">
+            <img class="slide" src="images/buddh.jpeg" alt="Slide 4">
+          </div>
+        </div>
+      </div>
+
+      <!-- Wisdom of the Day -->
+      <div class="w-1/4 text-center text-gray-700 hidden md:block">
+        <div class="wisdom-box">
+          📖 <strong>Religion is a system of beliefs, practices, and worldviews that typically involve faith in a higher power, divine being(s), or spiritual principles. It often includes moral codes, rituals, sacred texts, and traditions that guide individuals and communities in understanding the purpose of life, the nature of existence, and their connection to the universe.</strong>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-10 border-t-2 border-gray-400">
+
+    <!-- Cards Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card">
+        <img src="images/hindu2.jpg" alt="Hinduism">
+        <p class="card-text">"Perform your duty without attachment to the results." – Bhagavad Gita</p>
+      </div>
+      <div class="card">
+        <img src="images/muslim2.jpg" alt="Islam">
+        <p class="card-text">"Indeed, Allah commands justice, good conduct, and giving to relatives." – Quran 16:90</p>
+      </div>
+      <div class="card">
+        <img src="images/christian2.jpg" alt="Christianity">
+        <p class="card-text">"Love your neighbor as yourself." – Mark 12:31</p>
+      </div>
+      <div class="card">
+        <img src="images/buddh2.jpg" alt="Buddhism">
+        <p class="card-text">"Hatred does not cease by hatred, but only by love; this is the eternal rule." – Buddha</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    // JavaScript for the dropdown toggle
+    const dropdownButton = document.getElementById("dropdownButton");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    dropdownButton.addEventListener("click", function() {
+      dropdownMenu.classList.toggle("show");
+    });
+
+    // Slider functionality
+    let index = 0;
+    function autoSlide() {
+      const slides = document.querySelector(".slides");
+      const totalSlides = document.querySelectorAll(".slide").length;
+      index = (index + 1) % totalSlides;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+    setInterval(autoSlide, 3000);
+
+    // Rotating Quotes
+    const quotes = [
+      '"Perform your duty without attachment to the results." – Bhagavad Gita (Hinduism)',
+      '"Indeed, Allah commands justice, good conduct, and giving to relatives." – Quran 16:90 (Islam)',
+      '"Love your neighbor as yourself." – Mark 12:31 (Christianity)',
+      '"Hatred does not cease by hatred, but only by love; this is the eternal rule." – Buddha (Buddhism)'
+    ];
+    let quoteIndex = 0;
+    function changeQuote() {
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+      document.getElementById("quote-text").textContent = quotes[quoteIndex];
+    }
+    setInterval(changeQuote, 4000);
+  </script>
+</body>
+</html>
